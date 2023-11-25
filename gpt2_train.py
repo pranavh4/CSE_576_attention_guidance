@@ -1,10 +1,9 @@
 import os
 
 from datasets import load_dataset, DownloadConfig
-from transformers import TrainingArguments, DataCollatorForLanguageModeling, GPT2LMHeadModel, GPT2Tokenizer
+from transformers import TrainingArguments, DataCollatorForLanguageModeling, GPT2LMHeadModel, GPT2Tokenizer, Trainer
 from transformers.trainer_utils import get_last_checkpoint
 
-from attention_guidance_trainer import AttentionGuidanceTrainer, StdoutCallback
 from utils.dataset_utils import group_texts
 
 PRETRAINED_MODEL_NAME = "gpt2"
@@ -12,13 +11,6 @@ CHECKPOINT_DIR = "./checkpoints"
 FINETUNED_SAVE_DIR = "./models"
 FINETUNED_MODEL_NAME = "gpt2-ag"
 DATASET_NAME = 'Skylion007/openwebtext'
-
-CONTRAST_TOKENS = [' not', ' Not', ' but', ' But', ' though', ' Though', 'though', 'not']
-
-# Keys are the attention head number, values are the tokens that are guided
-ATTENTION_GUIDANCE_PATTERN = {
-    0: CONTRAST_TOKENS,
-}
 
 TRAINING_ARGS = TrainingArguments(
     per_device_train_batch_size=32,
@@ -33,7 +25,7 @@ model = GPT2LMHeadModel.from_pretrained(PRETRAINED_MODEL_NAME)
 
 raw_dataset = load_dataset(
     path=DATASET_NAME,
-    split='train[:2000000]',  # use train[:int_value] to load a subset of the dataset, mainly for testing purposes
+    split='train[:1000000]',  # use train[:int_value] to load a subset of the dataset, mainly for testing purposes
     download_config=DownloadConfig(cache_dir="./dataset/gpt2")
 )
 
@@ -50,7 +42,7 @@ lm_dataset = tokenized_dataset.map(
 
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
-trainer = AttentionGuidanceTrainer(
+trainer = Trainer(
     model=model,
     tokenizer=tokenizer,
     args=TRAINING_ARGS,

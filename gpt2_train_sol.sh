@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -p general
-#SBATCH -t 3-00:0:00
+#SBATCH -t 5-00:0:00
 #SBATCH --mem=100GB
 #SBATCH -G a100:2
 #SBATCH --mail-type=ALL
