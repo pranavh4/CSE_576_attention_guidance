@@ -5,6 +5,7 @@ from utils.dataset_utils import load_dataset, encode_inverse_scaling_dataset
 from utils.inference_utils import calculate_classification_accuracy, calculate_sequence_loss
 
 MODEL_NAME = "gpt2"
+MODEL_PATH = "checkpoints/checkpoint-137746"
 INVERSE_SCALING_DATASET_DIR = "./dataset/inverse_scaling"
 BATCH_SIZE = 32
 
@@ -17,7 +18,7 @@ else:
     device = torch.device("cpu")
 
 tokenizer = GPT2Tokenizer.from_pretrained(MODEL_NAME)
-model = GPT2LMHeadModel.from_pretrained(MODEL_NAME)
+model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
 model.to(device)
 
 print("\nLoading Datasets")
