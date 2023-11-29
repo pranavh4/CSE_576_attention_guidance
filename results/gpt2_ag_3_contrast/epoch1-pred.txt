@@ -1,0 +1,10 @@
+repetitive-algebra_classification.jsonl: 0.393
+pattern-matching-suppression_classification.jsonl: 0.05742296918767507
+redefine_classification.jsonl: 0.6567524115755627
+resisting-correction_classification.jsonl: 0.9949618736383442
+into-the-unknown_classification.jsonl: 0.4928728070175439
+memo-trap_classification.jsonl: 0.7339743589743589
+modus-tollens_classification.jsonl: 0.1796116504854369
+sig-figs_classification.jsonl: 0.3915394554242236
+hindsight-neglect_classification.jsonl: 0.47619047619047616
+neqa_classification.jsonl: 0.45666666666666667
