@@ -14,9 +14,9 @@ FINETUNED_MODEL_NAME = "gpt2-medium-ag"
 DATASET_NAME = 'Skylion007/openwebtext'
 
 TRAINING_ARGS = TrainingArguments(
-    per_device_train_batch_size=32,
+    per_device_train_batch_size=16,
     output_dir=CHECKPOINT_DIR,
-    num_train_epochs=2,
+    num_train_epochs=1,
     save_strategy='epoch'
 )
 
