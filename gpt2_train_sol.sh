@@ -2,7 +2,7 @@
 #SBATCH -p general
 #SBATCH -t 5-00:0:00
 #SBATCH --mem=100GB
-#SBATCH -G a100:2
+#SBATCH -G a100:1
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=sshah205@asu.edu
 #SBATCH -o slurm.%j.out # file to save job's STDOUT (%j = JobId)
