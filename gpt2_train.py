@@ -6,10 +6,11 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from utils.dataset_utils import group_texts
 
-PRETRAINED_MODEL_NAME = "gpt2"
-CHECKPOINT_DIR = "./checkpoints"
+
+PRETRAINED_MODEL_NAME = "gpt2-medium"
+CHECKPOINT_DIR = "./gpt2_medium_checkpoints"
 FINETUNED_SAVE_DIR = "./models"
-FINETUNED_MODEL_NAME = "gpt2-ag"
+FINETUNED_MODEL_NAME = "gpt2-medium-ag"
 DATASET_NAME = 'Skylion007/openwebtext'
 
 TRAINING_ARGS = TrainingArguments(
